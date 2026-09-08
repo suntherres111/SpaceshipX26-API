@@ -8,7 +8,11 @@ import { AppModule } from './app.module.js';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors({ origin: 'http://localhost:5173' }); // for the React frontend later
+  app.enableCors({
+    // Local dev, plus any Vercel deployment of prms-web — production and every
+    // per-branch/per-commit preview URL alike.
+    origin: ['http://localhost:5173', /\.vercel\.app$/],
+  });
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();
