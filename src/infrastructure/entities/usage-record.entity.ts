@@ -5,10 +5,10 @@ export class UsageRecordEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column('uuid')
   passengerId: string;
 
-  @Column()
+  @Column('uuid')
   resourceId: string;
 
   @CreateDateColumn()
