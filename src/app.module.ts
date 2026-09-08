@@ -15,6 +15,7 @@ import { ReportingModule } from './reporting/reporting.module.js';
      url: process.env.DATABASE_URL,
      autoLoadEntities: true,
      synchronize: process.env.NODE_ENV !== 'production',
+     ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
    }),
     CrewLeadsModule,
     PassengersModule,
