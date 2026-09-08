@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CrewLeadsModule } from './crew-leads/crew-leads.module.js';
+import { PassengersModule } from './passengers/passengers.module.js';
+import { ResourcesModule } from './resources/resources.module.js';
 
 @Module({
   imports: [
@@ -13,7 +15,8 @@ import { CrewLeadsModule } from './crew-leads/crew-leads.module.js';
      synchronize: process.env.NODE_ENV !== 'production',
    }),
     CrewLeadsModule,
-    // feature modules (Passengers, Resources, AccessControl, CrewLeads, Audit, Reporting) get added here as we build them
+    PassengersModule,
+    ResourcesModule,
   ],
 })
 export class AppModule {}
